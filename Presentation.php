@@ -12,12 +12,12 @@
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <div class="navbar-header">
+      <div class="navbar-header"> 
         <img src="NHCCS_logo_hi-res.gif" height="200" width="300">
       </div>
       <ul class="nav navbar-nav">
-      	<li><a href="home.php">HOME</a></li>      
-      </ul>
+      	<li><a href="home.php">HOME</a></li>   
+    </ul>
     </div>
   </nav>
   <div class="container">

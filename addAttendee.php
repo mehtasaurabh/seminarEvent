@@ -44,7 +44,7 @@
           <img src="NHCCS_logo_hi-res.gif" height="200" width="300">
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="home.php">HOME</a></li>
+          <li><a href="home.php">HOME</a></li>
         </ul>
       </div>
     </nav>
@@ -71,7 +71,7 @@
             </div>
           </div><br>
           <div >
-          	<span style="color:red"><?php if(isset($msg)) echo $msg; ?></span>
+          	<span style="color:green"><?php if(isset($msg)) echo $msg; ?></span>
           </div>
         </div>
       </form>

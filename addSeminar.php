@@ -91,7 +91,7 @@
               </div>
             </div>
             <div >
-              <span style="color:red"><?php if(isset($msg)) echo $msg; ?></span>
+              <span style="color:green"><?php if(isset($msg)) echo $msg; ?></span>
             </div>
           </div>
         </div>
