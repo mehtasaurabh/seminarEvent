@@ -49,18 +49,15 @@
 ?>
 
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <img src="NHCCS_logo_hi-res.gif" height="200" width="300">
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="Presentation.php">Presentation</a></li>
+        <li><a href="home.php">HOME</a></li>
         <li class="active"><a href="addSeminar.php">Add Seminar</a></li>
         <li><a href="attendee.php">Attendee</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#info">About Us</button>
       </ul>
     </div>
   </nav>
