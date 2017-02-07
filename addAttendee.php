@@ -1,49 +1,33 @@
 <?php
-/*	File    : Index.php
-	Purpose : Contains all html data and Php data for the login page
-	Author  : Saurabh Mehta	*/
-  if(isset($_POST['submit'])) {
-    $error = false;
-  	include_once "dbconnect.php";
+/*
+*	File    : Index.php
+*	Purpose : Contains all html data and Php data for the login page
+*	Author  : Saurabh Mehta
+*/
 
-  	$name = trim($_POST['name']);
-    $name = strip_tags($name);
-    $name = htmlspecialchars($name);
+if(isset($_POST['name']) && isset($_POST['contact']))
+  {
+    // include Database connection file 
+    include("./config/config.php");
 
-    $contact = trim($_POST['contact']);
-    $contact = strip_tags($contact);
-    $contact = htmlspecialchars($contact);
-
-    if(!$error){
-    
-      $record = $fm->createRecord('attendee');
-
-      $record->setField('name', $name);
-      $record->setField('contact', $contact);
-      
-      $result = $record->commit();
-      
-      if(!empty($result)) {
-        $msg = "SUCCESSFUL REGISTERATION";
-      } else {
-        $msg = "Problem in Registeration";
-      }
-    } else {
-        echo "error";
-    }
+    // get values 
+    $name = $_POST['name'];
+    $contact = $_POST['contact'];
+   
+    $db->addAttendee('attendee', $name, $contact);
   }
 
- 	$PageTitle = "addAttendee.php";
- 	include_once 'header.php';
+ $PageTitle = "addAttendee.php";
+ include_once 'header.php';
 ?>
 
-  <body>
+  <body background="./assets/pics/a.jpg">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <img src="NHCCS_logo_hi-res.gif" height="200" width="300">
+          <img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300">
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav nav-pills">
           <li><a href="home.php">HOME</a></li>
         </ul>
       </div>
