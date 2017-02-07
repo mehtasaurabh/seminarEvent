@@ -1,0 +1,15 @@
+1. Should have 2 sections Seminar and Attendee
+
+2. Seminar Details will have seminar title, description, 
+	Date and time, Presented by
+
+3. Presentation Page (Seminar title, Presented by, date and time, Attendee list ) 
+	+ buttons (New Seminar, Add Attendee)
+
+4. Attendee page will have Attendee Name, List of seminars attend/going to attend 
+	+ buttons (Subscribe Seminar, New Attendee  )
+
+5. Home page will be seminar lists
+
+
+
