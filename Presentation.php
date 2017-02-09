@@ -3,10 +3,32 @@
 *		Purpose : views the details of respective seminar
 *		Author  : Saurabh Mehta	
 */
+  // to connect the database
   include("./config/config.php");
   $PageTitle = "presentation.php";
   include_once 'header.php';
-?>
+  
+  if (isset($_GET['event_id'])) {
+    $id = $_GET['event_id'];
+
+
+    $records = $db->showAttendee('semiEvent', $id);
+    if($records) {
+      foreach ($records as $record) {
+        //used protal to access attendees via seminar 
+        $attendeeRecords = $record->getRelatedSet('attendee');
+          if (FileMaker::isError($attendeeRecords)) {
+        } else { 
+          foreach ($attendeeRecords as $attendeeRecord) {
+            $attendee_id = $attendeeRecord->getField('attendee::attendee_id');
+            $name = $attendeeRecord->getField('attendee::name');
+            $contact = $attendeeRecord->getField('attendee::contact');
+            }
+          }  
+        } 
+      }
+    }
+  ?>
 <body background="./assets/pics/a.jpg">
   <body>
     <nav class="navbar navbar-default">
@@ -25,29 +47,19 @@
           <div class="panel-body">
             <table  class="table table-striped table-bordered table-hover table-condensed">
               <tr>
-                <th>Name:</th>
-                <th>Contact:</th>
+                <th>Name</th>
+                <th>Contact</th>
               </tr>
               <?php
-              //Initializing the database connection
-              $records = $db->showAttendee('attendee');
-              if($records) {
-                foreach ($records as $record) { 
+              //displaying content
                 echo "<tr>";
-                echo "<td>".$record->getField('name'). "</td>";
-                echo "<td>".$record->getField('contact'). "</td>";
+                echo "<td>".$name. "</td>";
+                echo "<td>".$contact. "</td>";
                 echo "</tr>";
-                }
-              }
-        ?>
-            </table>
-          </div>
+              ?>
+          </table>
         </div>
-        <center>
-          <form action="addAttendee.php">
-            <br><input type="submit" class="btn btn-success" value="Add Attendee" />
-          </form>
-        </center>
       </div>
-    </body>
-  </html>
+    </div>
+  </body>
+</html>

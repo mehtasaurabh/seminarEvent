@@ -25,6 +25,7 @@
         </ul>
       </div>
     </nav>
+    <!--creating modal-->
     <div class="modal fade" id="info" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -33,7 +34,7 @@
             <h4 class="modal-title">National Heritage</h4>
           </div>
           <div class="modal-body">
-            <p >National Heritage Center for Constitutional Studies is renowned institution which conducts various seminars related to constitution of our country. It also deals with information related to law and orders,amendments in our constitution. Last but not the least we also conducts seminars related to latest schemes launched by the government and Bills passed in the parliament.We contact experts in their relative field to deliver lectures and provide their valuable suggestions. </p>
+            <p>National Heritage Center for Constitutional Studies is renowned institution which conducts various seminars related to constitution of our country. It also deals with information related to law and orders,amendments in our constitution. Last but not the least we also conducts seminars related to latest schemes launched by the government and Bills passed in the parliament.We contact experts in their relative field to deliver lectures and provide their valuable suggestions. </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
@@ -45,40 +46,43 @@
       <div class="panel panel-default">
         <div class="panel-heading lead">List of Seminar</div>  
           <div class="panel-body">
+          <!--creating table-->
            <table  class="table table-striped table-bordered table-hover table-condensed">
             <tr>
               <th>Title</th>
               <th>Author</th>
               <th>Date</th>
               <th>Title</th>
-              <th>&nbsp<span class="glyphicon glyphicon-eye-open"></span></th>
+              <th>&nbsp</th>
+              <th>&nbsp</th>
             </tr>
     
             <?php
-              //Initializing the database connection
+              //calling showSeminar function to display list of seminars 
               $records = $db->showSeminar('semiEvent');
               if($records) {
+                //displaying records
                 foreach ($records as $record) { 
                 echo "<tr>";
                 echo "<td>".$record->getField('title'). "</td>";
                 echo "<td>".$record->getField('presentedBy'). "</td>";
                 echo "<td>". $record->getField('date'). "</td>";
                 echo "<td>". $record->getField('time'). "</td>";    
-                echo "<td><a href=\"presentation.php?id=".$record->getrecordid()."\">view</a></td>";
+                echo "<td><a href=\"presentation.php?event_id=".$record->getField('event_id')."\">view</a></td>";
+                echo "<td><a href=\"addAttendee.php?event_id=".$record->getField('event_id')."\">Interested</a></td>";
                 echo "</tr>";
                 }
               }
-        ?>
-        </table>
+            ?>
+          </table>
         </div>
       </div>
     </div>
     <center>
-    <form action="addSeminar.php">
-      <br><input type="submit" class="btn btn-success" value="Add Seminar" />
-    </form>
+      <form action="addSeminar.php">
+        <br><input type="submit" class="btn btn-success" value="Add Seminar" />
+      </form>
     </center>     
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
   </body>

@@ -4,51 +4,74 @@
 *		Purpose : Contains all html data and Php data for the login page
 *		Author  : Saurabh Mehta	
 */
-    include("./config/config.php");
-    $PageTitle = "attendee.php";
-    include_once 'header.php';
-    $rid = $_GET['event_id'];
-    $records = $db->portal("semiEvent",$event_id,"attendee");
+  // to connect the database
+  include("./config/config.php");
+  $PageTitle = "attendee.php";
+  include_once 'header.php';
 ?>
-  <body background="./assets/pics/a.jpg">
+
+<body background="./assets/pics/a.jpg">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <img src="NHCCS_logo_hi-res.gif" height="200" width="300">
+        <img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300">
       </div>
       <ul class="nav nav-pills">
         <li><a href="home.php">HOME</a></li>
-        <li class="active"><a href="./assets/pics/attendee.php">Attendee</a></li>
+        <li class="active"><a href="attendee.php">Attendee</a></li>
       </ul>
     </div>
   </nav>
   <div class="container">
-    <h1 style="color:red"> Complete list of interested attendees and seminars</h1><br>
-    <div class="row">
-      <div class="col-md-10">
+    <div class="col-md-10">
+      <div class="col-md-4">
+        <p class="lead"><span style="color:red">List of Attendees</span></p>
+        <!--creating table to display attendees details-->
         <table  class="table-striped table-bordered table-hover table-condensed">
-              <tr>
-                <th>Title</th>
-                <th>PresentedBy</th>
-                <th>Name:</th>
-                <th>Contact:</th>
-              </tr>
-              <?php
-                if($records) {
-                  foreach ($records as $record) {
-                    echo "<td>".$record->getField('title'). "</td>";
-                    echo "<td>".$record->getField('PresentedBy'). "</td>";
-                    echo "<td>".$record->getField("attendee::name"). "</td>";
-                    echo "<td>".$record->getField('attendee::contact'). "</td>";
-                    echo "</tr>";
-                    
-                    }
-                  }    
-              ?>
-            </table>
-          </div>
+        <tr>
+          <th>Name</th>
+          <th>Contact</th>
+        </tr>
+        <?php
+        //calling attendee function to display complete list of attendees
+          $records = $db->completeAttendees('attendee');
+          if($records) {
+            foreach ($records as $record) { 
+              echo "<tr>";
+              echo "<td>".$record->getField('name'). "</td>";
+              echo "<td>".$record->getField('contact'). "</td>";
+              echo "</tr>";
+              }
+            }
+          ?>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <p class="lead"><span style="color:red">List of Seminars</span></p>
+        <!--creating tables to display seminar details-->
+        <table  class="table-striped table-bordered table-hover table-condensed">
+          <tr>
+            <th>Title</th>
+            <th>PresentedBy</th>
+            <th>Subscribe</th>
+          </tr>
+          <?php 
+          //calling seminar function to display list of seminars 
+            $records = $db->showSeminar('semiEvent');
+            if($records) {
+              foreach ($records as $record) { 
+                echo "<tr>";
+                echo "<td>".$record->getField('title'). "</td>";
+                echo "<td>".$record->getField('presentedBy'). "</td>";
+                echo "<td><a href=\"addAttendee.php?event_id=".$record->getField('event_id')."\">Subscribe</a></td>";
+                echo "</tr>";
+              }
+            }
+          ?> 
+          </table>   
         </div>
       </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
   </body>
