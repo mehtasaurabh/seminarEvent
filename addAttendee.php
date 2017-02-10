@@ -25,44 +25,53 @@ if(isset($_POST['name']) && isset($_POST['contact']))
  include_once 'header.php';
 ?>
 
-  <body background="./assets/pics/a.jpg">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300">
-        </div>
-        <ul class="nav nav-pills">
-          <li><a href="home.php">HOME</a></li>
-        </ul>
+<body background="./assets/pics/a.jpg">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300">
       </div>
-    </nav>
-    <div class="container">
-	  <form action="" class="form-horizontal container" name="addSeminar" method="post" id="addsem">
-	    <div class="container-fluid form-group">  
-       <div class="col-sm-10">
-	        <label class="control-label col-sm-4">Name:</label>
-            <div class="col-sm-6">
-              <input type="text" id="name" name="name" class="form-control" placeholder="Name" /><br>
-	        </div>
-	        <label class="control-label col-sm-4">Contact:</label>
-            <div class="col-sm-6">
-              <input type="number" id="contact" name="contact" class="form-control" placeholder="Contact no." /><br>
-	        </div>
-	        <div class="form-style">
-              <div class="row">
-                <div class="col-md-6">
-                  <center>
-                    <input type='submit' class="btn btn-lg btn btn-success" name='submit' value='Interested' />
-                  </center>
+      <ul class="nav navbar-nav">
+        <li><a href="home.php">HOME</a></li>
+        <li><a href="addSeminar.php">Add Seminar</a></li>
+        <li><a href="attendee.php">Attendee</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading lead" id="panel-heading">New Attendee</div>  
+        <div class="panel-body">
+          <!--creating form to add new attendees-->    
+	         <form action="" class="form-horizontal container" name="addSeminar" method="post" id="addsem">
+	           <div class="container-fluid form-group">  
+                <div class="col-sm-10">
+                  <label class="control-label col-sm-4">Name:</label>
+                  <div class="col-sm-6">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" /><br>
+                  </div>
+                  <label class="control-label col-sm-4">Contact:</label>
+                  <div class="col-sm-6">
+                    <input type="number" id="contact" name="contact" class="form-control" placeholder="Contact no." /><br>
+                  </div>
+                  <div class="form-style">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <center>
+                          <input type='submit' class="btn btn-lg btn btn-success" name='submit' value='Interested' />
+                        </center>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              <br>
+              <div>
+                <span style="color:green"><?php if(isset($msg)) echo $msg; ?></span>
               </div>
             </div>
-          </div><br>
-          <div >
-          	<span style="color:green"><?php if(isset($msg)) echo $msg; ?></span>
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </body>
 </html>

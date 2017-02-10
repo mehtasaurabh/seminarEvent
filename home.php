@@ -13,7 +13,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <ul class="nav nav-pills">
+          <ul class="nav navbar-nav">
             <li><img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300"></li>
             <li class="active"><a href="home.php">HOME</a></li>
             <li><a href="addSeminar.php">Add Seminar</a></li>

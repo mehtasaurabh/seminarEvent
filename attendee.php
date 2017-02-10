@@ -16,8 +16,9 @@
       <div class="navbar-header">
         <img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300">
       </div>
-      <ul class="nav nav-pills">
+      <ul class="nav navbar-nav">
         <li><a href="home.php">HOME</a></li>
+        <li><a href="addSeminar.php">Add Seminar</a></li>
         <li class="active"><a href="attendee.php">Attendee</a></li>
       </ul>
     </div>
@@ -25,7 +26,7 @@
   <div class="container">
     <div class="col-md-10">
       <div class="col-md-4">
-        <p class="lead"><span style="color:red">List of Attendees</span></p>
+        <div class="lead" id="displayA">List of Attendees</div>
         <!--creating table to display attendees details-->
         <table  class="table-striped table-bordered table-hover table-condensed">
         <tr>
@@ -47,7 +48,7 @@
         </table>
       </div>
       <div class="col-md-6">
-        <p class="lead"><span style="color:red">List of Seminars</span></p>
+        <div class="lead" id="displayS">List of Seminars</div>
         <!--creating tables to display seminar details-->
         <table  class="table-striped table-bordered table-hover table-condensed">
           <tr>
