@@ -1,8 +1,8 @@
 <?php
-/*	
+/*  
 *    File    : Index.php
-*	   Purpose : Displays list of seminars
-*		 Author  : Saurabh Mehta	
+*    Purpose : Displays list of seminars
+*    Author  : Saurabh Mehta  
 */
   // to connect the database
   include("./config/config.php");
@@ -46,35 +46,37 @@
       <div class="panel panel-default">
         <div class="panel-heading lead">List of Seminar</div>  
           <div class="panel-body">
-          <!--creating table-->
-           <table  class="table table-striped table-bordered table-hover table-condensed">
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Date</th>
-              <th>Title</th>
-              <th>&nbsp</th>
-              <th>&nbsp</th>
-            </tr>
-    
-            <?php
-              //calling showSeminar function to display list of seminars 
-              $records = $db->showSeminar('semiEvent');
-              if($records) {
-                //displaying records
-                foreach ($records as $record) { 
-                echo "<tr>";
-                echo "<td>".$record->getField('title'). "</td>";
-                echo "<td>".$record->getField('presentedBy'). "</td>";
-                echo "<td>". $record->getField('date'). "</td>";
-                echo "<td>". $record->getField('time'). "</td>";    
-                echo "<td><a href=\"presentation.php?event_id=".$record->getField('event_id')."\">view</a></td>";
-                echo "<td><a href=\"addAttendee.php?event_id=".$record->getField('event_id')."\">Interested</a></td>";
-                echo "</tr>";
+            <div class="table-responsive">
+            <!--creating table-->
+            <table  class="table table-striped table-bordered table-hover table-condensed">
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>&nbsp</th>
+                <th>&nbsp</th>
+              </tr>
+      
+              <?php
+                //calling showSeminar function to display list of seminars 
+                $records = $db->showSeminar('semiEvent');
+                if($records) {
+                  //displaying records
+                  foreach ($records as $record) { 
+                  echo "<tr>";
+                  echo "<td>".$record->getField('title'). "</td>";
+                  echo "<td>".$record->getField('presentedBy'). "</td>";
+                  echo "<td>". $record->getField('date'). "</td>";
+                  echo "<td>". $record->getField('time'). "</td>";    
+                  echo "<td><a href=\"presentation.php?event_id=".$record->getField('event_id')."\">view</a></td>";
+                  echo "<td><a href=\"addAttendee.php?event_id=".$record->getField('event_id')."\">Interested</a></td>";
+                  echo "</tr>";
+                  }
                 }
-              }
-            ?>
-          </table>
+              ?>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -87,7 +89,3 @@
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
   </body>
 </html>
-
-
-
-

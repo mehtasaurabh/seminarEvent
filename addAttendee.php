@@ -56,7 +56,7 @@ if(isset($_POST['name']) && isset($_POST['contact']))
                   </div>
                   <div class="form-style">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-sm-6">
                         <center>
                           <input type='submit' class="btn btn-lg btn btn-success" name='submit' value='Interested' />
                         </center>
