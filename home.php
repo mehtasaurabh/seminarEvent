@@ -14,14 +14,16 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <ul class="nav navbar-nav">
-            <li><img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" width="300"></li>
+            <li><img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" 
+            width="300"></li>
             <li class="active"><a href="home.php">HOME</a></li>
             <li><a href="addSeminar.php">Add Seminar</a></li>
             <li><a href="attendee.php">Attendee</a></li>
           </ul>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#info">About Us</button>
+          <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" 
+          data-target="#info">About Us</button>
         </ul>
       </div>
     </nav>
@@ -34,10 +36,18 @@
             <h4 class="modal-title">National Heritage</h4>
           </div>
           <div class="modal-body">
-            <p>National Heritage Center for Constitutional Studies is renowned institution which conducts various seminars related to constitution of our country. It also deals with information related to law and orders,amendments in our constitution. Last but not the least we also conducts seminars related to latest schemes launched by the government and Bills passed in the parliament.We contact experts in their relative field to deliver lectures and provide their valuable suggestions. </p>
+            <p>National Heritage Center for Constitutional Studies is renowned
+              institution which conducts various seminars related to constitution
+              of our country. It also deals with information related law and
+              orders,amendments in our constitution. Last but notthe least we
+              also conducts seminars related to latest schemes launched by the
+              government and Bills passed in the parliament.We contact experts
+              in their relative field to deliver lectures and provide their 
+              valuable suggestions. </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close</button>
           </div>
         </div>
       </div>

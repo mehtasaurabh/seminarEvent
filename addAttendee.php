@@ -43,16 +43,18 @@ if(isset($_POST['name']) && isset($_POST['contact']))
       <div class="panel-heading lead" id="panel-heading">New Attendee</div>  
         <div class="panel-body">
           <!--creating form to add new attendees-->    
-	         <form action="" class="form-horizontal container" name="addSeminar" method="post" id="addsem">
+	         <form action="" class="form-horizontal container" name="addAttendee" method="post" id="addAttendee">
 	           <div class="container-fluid form-group">  
                 <div class="col-sm-10">
                   <label class="control-label col-sm-4">Name:</label>
                   <div class="col-sm-6">
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" /><br>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" />
+                    <div class="error_form" id="nameErr"></div><br>
                   </div>
                   <label class="control-label col-sm-4">Contact:</label>
                   <div class="col-sm-6">
-                    <input type="number" id="contact" name="contact" class="form-control" placeholder="Contact no." /><br>
+                    <input type="number" id="contact" name="contact" class="form-control" placeholder="Contact no." />
+                    <div class="error_form" id="contactErr"></div><br>
                   </div>
                   <div class="form-style">
                     <div class="row">
@@ -65,14 +67,13 @@ if(isset($_POST['name']) && isset($_POST['contact']))
                   </div>
                 </div>
               <br>
-              <div>
-                <span style="color:green"><?php if(isset($msg)) echo $msg; ?></span>
-              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/attendeeValidate.js"></script>
   </body>
 </html>
 
