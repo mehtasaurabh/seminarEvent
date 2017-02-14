@@ -13,18 +13,24 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>     
+          </button>
+          <img src="./assets/pics/NHCCS_logo_hi-res.gif" height="100" width="200">
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><img src="./assets/pics/NHCCS_logo_hi-res.gif" height="200" 
-            width="300"></li>
-            <li class="active"><a href="home.php">HOME</a></li>
+            <li class="active"><a href="home.php">Home</a></li>
             <li><a href="addSeminar.php">Add Seminar</a></li>
-            <li><a href="attendee.php">Attendee</a></li>
+            <li><a href="addAttendee.php">Attendee</a></li>
+          </ul>          
+          <ul class="nav navbar-nav navbar-right">
+            <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" 
+            data-target="#info">About Us</button>
           </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" 
-          data-target="#info">About Us</button>
-        </ul>
       </div>
     </nav>
     <!--creating modal-->
@@ -54,16 +60,16 @@
     </div>
     <div class="container">
       <div class="panel panel-default">
-        <div class="panel-heading lead">List of Seminar</div>  
+        <div class="panel-heading lead" id="panel-heading">List of Seminar</div>  
           <div class="panel-body">
             <div class="table-responsive">
             <!--creating table-->
             <table  class="table table-striped table-bordered table-hover table-condensed">
               <tr>
                 <th>Title</th>
-                <th>Author</th>
+                <!--<th>Author</th>
                 <th>Date</th>
-                <th>Title</th>
+                <th>Title</th>-->
                 <th>&nbsp</th>
                 <th>&nbsp</th>
               </tr>
@@ -76,11 +82,14 @@
                   foreach ($records as $record) { 
                   echo "<tr>";
                   echo "<td>".$record->getField('title'). "</td>";
-                  echo "<td>".$record->getField('presentedBy'). "</td>";
-                  echo "<td>". $record->getField('date'). "</td>";
-                  echo "<td>". $record->getField('time'). "</td>";    
-                  echo "<td><a href=\"presentation.php?event_id=".$record->getField('event_id')."\">view</a></td>";
-                  echo "<td><a href=\"addAttendee.php?event_id=".$record->getField('event_id')."\">Interested</a></td>";
+                  echo "<td><a href=\"presentation.php?event_id=".
+                  $record->getField('event_id')."&nameTitle=".
+                  $record->getField('title')."&namePresentedBy=".
+                  $record->getField('presentedBy')."&nameDate=".
+                  $record->getField('date')."&nameTime=".
+                  $record->getField('time')."\">view</a></td>";
+                  echo "<td><a href=\"addAttendee.php?event_id=".
+                  $record->getField('event_id')."\">Interested</a></td>";
                   echo "</tr>";
                   }
                 }

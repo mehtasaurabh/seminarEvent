@@ -33,6 +33,7 @@ $(document).ready(function() {
 		}
 		else{
 			$("#titleErr").hide();
+			return true;
 		}
 	}
 
@@ -45,6 +46,7 @@ $(document).ready(function() {
 		}
 		else{
 			$("#presentedByErr").hide();
+			return true;
 		}
 	}
 	$("#addSeminar").on('submit',function(){
